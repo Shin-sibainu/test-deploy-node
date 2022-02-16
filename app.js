@@ -10,6 +10,10 @@ const PORT = process.env.PORT || 5000;
 app.use(express.static("./public")); //これでHTMLとか読み込める
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("Hello Todoapp");
+});
+
 app.use("/api/v1/tasks", taskRoute);
 
 const start = async () => {
