@@ -4,12 +4,14 @@ const formDOM = document.querySelector(".task-form");
 const taskInputDOM = document.querySelector(".task-input");
 const formAlertDOM = document.querySelector(".form-alert");
 
+const url = "https://todotask-nodejs.herokuapp.com/";
+
 // /api/v1/tasksからタスクを読み込む
 const showTasks = async () => {
   loadingDOM.style.visibility = "visible";
   try {
     //自作のAPIを叩く
-    const { data: tasks } = await axios.get("/api/v1/tasks");
+    const { data: tasks } = await axios.get(url);
     //タスクが１つもないとき
     if (tasks.length < 1) {
       tasksDOM.innerHTML = '<h5 class="empty-list">タスクがありません</h5>';
